@@ -1,89 +1,78 @@
-// 1
-// Запропонуйте користувачу ввести число за допомогою prompt().
-// Збережіть введене значення у змінну number.
-// Перевірте, чи дорівнює змінна number числу 10:
-//    Якщо так – виведіть повідомлення 'Вірно' у alert().
-//    Якщо ні – виведіть 'Невірно'. 
+// Завдання 1:
 
-// Підказка: prompt завжди повертає рядок (String), тому перед перевіркою  
-// перетворіть значення на число за допомогою Number().
+// Створіть масив styles з елементами 'jazz' і 'blues'
+// Додайте до кінця масиву елемент 'rock-n-roll' за допомогою відповідного методу масивів
+// Знайдіть елемент 'blues' у масиві та замініть його на 'classic', використовуючи код
 
-// const userInput = prompt("Введіть число:");
-// const number = Number(userInput);
-// if (number === 10) {
-//   alert('Вірно');
-// } else {
-//   alert('Невірно');
-// }
+// Напишіть функцію logItems(array), яка приймає масив як аргумент
+// і виводить у консоль кожен його елемент у форматі:
+// "<номер елемента> - <значення елемента>".
+// Використайте цикл for для перебору елементів масиву.
+// Нумерація елементів повинна починатися з 1 (а не з 0).
 
-//2
-// У змінній min лежить випадкове число від 0 до 59.
-// Визначте, в яку чверть години потрапляє
-// це число (у першу, другу, третю чи четверту).
-// Виведіть в alert відповідне повідомлення, наприклад:
-// "10 входить в першу чверть"
-// const min = Math.floor(Math.random() * (59 - 0) + 0);
-
-const min = Math.floor(Math.random() * (59 - 0) + 0);
-const quarter = Math.ceil(min / 15);
-switch (quarter) {
-  case 1:
-    alert(`${min} входить в першу чверть`);
-    break;
-  case 2:
-    alert(`${min} входить в другу чверть`);
-    break;
-  case 3:
-    alert(`${min} входить в третю чверть`);
-    break;
-  case 4:
-    alert(`${min} входить в четверту чверть`);
-    break;
-  default:
-    alert('Сталася помилка');
+let styles = ["jazz", "blues"];
+styles.push("rock-n-roll");
+const bluesIndex = styles.indexOf("blues");
+if (bluesIndex !== -1) {
+  styles[bluesIndex] = "classic";
 }
 
-//3
-// Змінна num може набувати 4 значення: '1', '2', '3' або '4' 
-// (запитуй це значення у користувача через prompt). 
-// Якщо вона має значення '1', то у змінну result запишіть 'зима',
-// якщо має значення '2' - 'весна' і так далі.
-// Розв'яжіть завдання через switch-case.
-// Не забудьте про дефолтне значення, на випадок, якщо користувач 
-// введе в prompt щось інше. В такому випадку result має набувати значення:
-// "Вибачте, але ви маєте ввести значення від 1 до 4 включно".
-// Значення змінної result виведіть в консоль.
+function logItems(array) {
+  for (let i = 0; i < array.length; i++) {
+    console.log(`${i + 1} - ${array[i]}`);
+  }
+}
+logItems(styles);
 
-// const userInput = prompt("Введіть число від 1 до 4:");
-// const num = Number(userInput);
-// let result;
-// switch (num) {
-//   case 1:
-//     result = 'зима';
-//     break;
-//   case 2:
-//     result = 'весна';
-//     break;
-//   case 3:
-//     result = 'літо';
-//     break;
-//   case 4:
-//     result = 'осінь';
-//     break;
-//   default:
-//     result = "Вибачте, але ви маєте ввести значення від 1 до 4 включно";
-// }
-// console.log(result);
+// Завдання 2:
 
-//4
-// Отримуйте від користувача число (кількість хвилин) через prompt
-// і виводьте у консоль рядок у форматі годин та хвилин.
-// Приклад: користувач вводить в prompt '70' -> в консолі відобразиться '01:10'.
-// Корисне посилання для відображення годин та хвилин у потрібному форматі ('01' замість '1'): 
-// <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart#examples>
+// Напишіть функцію checkLogin(array), яка:
+// Приймає масив логінів як аргумент.
+// Запитує ім'я користувача через prompt.
+// Перевіряє, чи є введене ім'я у переданому масиві.
+// Якщо ім'я є в масиві – виводить повідомлення через alert: "Welcome, <name>!"
+// Якщо ім'я відсутнє – виводить повідомлення: "User not found".
 
-// const totalMinutes = Number(prompt("Введіть кількість хвилин:"));
-// const hours = Math.floor(totalMinutes / 60);
-// const minutesRemaining = totalMinutes % 60;
-// const formattedTime = `${hours.toString().padStart(2, '0')}:${minutesRemaining.toString().padStart(2, '0')}`;
-// console.log(formattedTime);
+// const logins = ["Peter", "John", "Igor", "Sasha"];
+
+function checkLogin(array) {
+  const userName = prompt("Введіть ваше ім'я:");
+  if (array.includes(userName)) {
+    alert(`Welcome, ${userName}!`);
+  } else {
+    alert("User not found");
+  }
+}
+const logins = ["Peter", "John", "Igor", "Sasha"];
+checkLogin(logins);
+
+// Завдання 3:
+
+// Напишіть функцію caclculateAverage(),
+// яка приймає довільну кількість
+// аргументів і повертає їхнє середнє значення.
+// Додайте перевірку, що аргументи - це числа.
+
+function calculateAverage() {
+  if (arguments.length === 0) {
+    return 0; // Повертаємо 0, якщо аргументів не передано
+  }
+
+  let sum = 0;
+
+  for (let i = 0; i < arguments.length; i++) {
+    const arg = arguments[i];
+
+    if (typeof arg !== "number") {
+      return "Помилка: всі аргументи повинні бути числами."; // Повертаємо повідомлення про помилку
+    }
+
+    sum += arg;
+  }
+
+  return sum / arguments.length;
+}
+console.log(calculateAverage(1, 2, 3)); // Виведе 2
+console.log(calculateAverage(5, 10, 15, 20)); // Виведе 12.5
+console.log(calculateAverage()); // Виведе 0
+console.log(calculateAverage(1, 2, "a")); // Виведе "Помилка: всі аргументи повинні бути числами."

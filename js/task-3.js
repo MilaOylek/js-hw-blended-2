@@ -1,35 +1,50 @@
-//7
-// Напишіть функцію getNumbers(min, max), що приймає 2 параметри - 
-// мінімальне і максимальне число відповідно.
-// Напишіть цикл всередині функції, який виводить у консоль
-// всі числа від max до min за спаданням.
-// Окрім цього, підрахуйте суму всіх парних чисел в цьому циклі
-// і поверніть її з функції.
+// Завдання 7:
 
-function getNumbers(min, max) {
-    let sumOfEvenNumbers = 0;
-      for (let i = max; i >= min; i--) {
-      console.log(i);
-      if (i % 2 === 0) {
-        sumOfEvenNumbers += i;
-      }
-    }
-    return sumOfEvenNumbers;
-  }
-  const result = getNumbers(1, 10);
-  console.log("Сума парних чисел:", result);
+// Напишіть скрипт, який для об'єкту user, послідовно:
+// 1 - додасть поле mood зі значенням 'happy',
+// 2 - замінить hobby на 'skydiving',
+// 3 - замінить значення premium на false,
+// 4 - виведе зміст об'єкта user у форматі
+// '<ключ>:<значення>' використовуя Object.keys() та for...of
 
-  //8
-  // Напишіть функцію min(a, b), яка приймає 2 числа і повертає меньше з них.
-// Потрібно додати перевірку, що функція отримує саме числа, в іншому випадку
-// повертати з функції рядок - 'Not a number!'.
-// function min(a, b) {
-//     if (typeof a !== 'number' || typeof b !== 'number') {
-//       return 'Not a number!';
-//     }
-//     return a < b ? a : b;
-//}
-//console.log(min(2, 5));  // Виведе: 2
-//console.log(min(3, 3));  // Виведе: 3
-//console.log(min(10, -5)); // Виведе: -5
-//console.log(min('a', 5)); // Виведе: 'Not a number!'
+// const user = {
+//     name: "John",
+//     age: 20,
+//     hobby: "tenis",
+//     premium: true,
+//   };
+const user = {
+  name: "John",
+  age: 20,
+  hobby: "tenis",
+  premium: true,
+};
+user.mood = 'happy';
+user.hobby = 'skydiving';
+user.premium = false;
+
+for (const key of Object.keys(user)) {
+  console.log(`${key}:${user[key]}`);
+}
+
+// Завдання 8:
+
+// Є об'єкт, в якому зберігаються зарплати команди
+// Напишіть код для додавання усіх зарплат та
+// збережіть його результат в змінній sum.
+// Якщо об'єкт salaries пустий, то результат має бути 0
+
+// const salaries = {
+//     Mango: 100,
+//     Poly: 160,
+//     Ajax: 1470,
+//   };
+const salaries = {
+  Mango: 100,
+  Poly: 160,
+  Ajax: 1470,
+};
+
+const sum = Object.values(salaries).reduce((acc, value) => acc + value, 0);
+
+console.log(sum); // Виведе 1730
